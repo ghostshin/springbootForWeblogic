@@ -1,0 +1,15 @@
+笔记：
+springBoot 部署到Weblogic纯属是TM阴间玩艺！
+
+1，POM要改，参考本例。
+
+2，启动类要改，加上  extends SpringBootServletInitializer implements WebApplicationInitializer，
+
+重写SpringApplicationBuilder
+
+3，加上web.xml,weblogicXML
+
+web.xml 的 <context-param>-<param-value>属性，要改成自己的启动类的全路径
+
+4，weblogic 起  server ： 
+nohup ./startManagedWebLogic.sh Server-0 http://192.168.31.13:7001 >server0.log &
